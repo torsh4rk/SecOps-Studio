@@ -2,114 +2,168 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    margin: 0;
-    font-family:
-        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+/* Global body reset will be handled via tokens below */
 
-code {
-    font-family:
-        source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+@layer base {
+  :root {
+    /* Palette: ocean blue & teal for SecOps Studio (light mode) */
+    --background: 203 100% 98%;           /* very light cyan/blue */
+    --foreground: 222 47% 11%;           /* slate-900 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 188 84% 36%;              /* teal-600 style */
+    --primary-soft: 188 76% 45%;         /* lighter teal glow */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 201 94% 93%;            /* pale sky background chip */
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 199 89% 48%;               /* ocean blue */
+    --accent-soft: 199 91% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 204 40% 90%;
+    --input: 204 40% 90%;
+    --ring: 188 84% 36%;
+
+    --chart-1: 188 84% 36%;
+    --chart-2: 199 89% 48%;
+    --chart-3: 171 77% 34%;
+    --chart-4: 43 89% 54%;
+    --chart-5: 346 77% 49%;
+
+    --radius: 0.9rem;
+
+    /* Extended tokens for gradients & shadows */
+    --hero-gradient: linear-gradient(135deg, hsl(203 100% 98%), hsl(201 94% 93%));
+    --shell-gradient: radial-gradient(circle at top left, hsl(199 89% 96%), hsl(203 100% 98%));
+    --card-glass: 0 18px 45px hsl(201 80% 30% / 0.16);
+    --card-soft: 0 10px 30px hsl(204 40% 40% / 0.14);
+    --ring-soft: 0 0 0 1px hsl(188 84% 36% / 0.15);
+
+    --transition-smooth: 180ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .dark {
+    /* Dark mode tokens: deep navy background, teal highlights */
+    --background: 222 47% 7%;            /* near slate-950 */
+    --foreground: 210 40% 96%;
+
+    --card: 222 47% 9%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 47% 9%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 188 84% 52%;              /* brighter teal for dark */
+    --primary-soft: 188 84% 60%;
+    --primary-foreground: 222 47% 7%;
+
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 40% 96%;
+
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 70%;
+
+    --accent: 199 89% 58%;
+    --accent-soft: 199 89% 66%;
+    --accent-foreground: 222 47% 7%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 28% 22%;
+    --input: 215 28% 22%;
+    --ring: 188 84% 52%;
+
+    --chart-1: 188 84% 52%;
+    --chart-2: 199 89% 58%;
+    --chart-3: 171 77% 44%;
+    --chart-4: 43 89% 64%;
+    --chart-5: 346 77% 59%;
+
+    --radius: 0.9rem;
+
+    --hero-gradient: radial-gradient(circle at top, hsl(222 47% 7%), hsl(222 47% 10%));
+    --shell-gradient: radial-gradient(circle at top left, hsl(199 89% 20%), hsl(222 47% 7%));
+    --card-glass: 0 20px 50px hsl(199 89% 20% / 0.6);
+    --card-soft: 0 14px 40px hsl(222 47% 5% / 0.9);
+    --ring-soft: 0 0 0 1px hsl(188 84% 52% / 0.45);
+
+    --transition-smooth: 180ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
 }
 
 @layer base {
-    :root {
-        --background: 0 0% 100%;
-        --foreground: 0 0% 3.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 0 0% 3.9%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 3.9%;
-        --primary: 0 0% 9%;
-        --primary-foreground: 0 0% 98%;
-        --secondary: 0 0% 96.1%;
-        --secondary-foreground: 0 0% 9%;
-        --muted: 0 0% 96.1%;
-        --muted-foreground: 0 0% 45.1%;
-        --accent: 0 0% 96.1%;
-        --accent-foreground: 0 0% 9%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 89.8%;
-        --input: 0 0% 89.8%;
-        --ring: 0 0% 3.9%;
-        --chart-1: 12 76% 61%;
-        --chart-2: 173 58% 39%;
-        --chart-3: 197 37% 24%;
-        --chart-4: 43 74% 66%;
-        --chart-5: 27 87% 67%;
-        --radius: 0.5rem;
-    }
-    .dark {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 0 0% 98%;
-        --primary-foreground: 0 0% 9%;
-        --secondary: 0 0% 14.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 63.9%;
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 14.9%;
-        --input: 0 0% 14.9%;
-        --ring: 0 0% 83.1%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
-    }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image: var(--shell-gradient);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .bg-hero-surface {
+    background-image: var(--hero-gradient);
+  }
+
+  .card-elevated {
+    box-shadow: var(--card-soft);
+  }
+
+  .card-glass {
+    box-shadow: var(--card-glass);
+    backdrop-filter: blur(18px);
+    background-color: hsl(var(--card) / 0.86);
+  }
+
+  .ring-soft {
+    box-shadow: var(--ring-soft);
+  }
 }
 
 @layer base {
-    * {
-        @apply border-border;
-    }
-    body {
-        @apply bg-background text-foreground;
-    }
-}
+  [data-debug-wrapper="true"] {
+    display: contents !important;
+  }
 
-@layer base {
-    [data-debug-wrapper="true"] {
-        display: contents !important;
-    }
-
-    [data-debug-wrapper="true"] > * {
-        margin-left: inherit;
-        margin-right: inherit;
-        margin-top: inherit;
-        margin-bottom: inherit;
-        padding-left: inherit;
-        padding-right: inherit;
-        padding-top: inherit;
-        padding-bottom: inherit;
-        column-gap: inherit;
-        row-gap: inherit;
-        gap: inherit;
-        border-left-width: inherit;
-        border-right-width: inherit;
-        border-top-width: inherit;
-        border-bottom-width: inherit;
-        border-left-style: inherit;
-        border-right-style: inherit;
-        border-top-style: inherit;
-        border-bottom-style: inherit;
-        border-left-color: inherit;
-        border-right-color: inherit;
-        border-top-color: inherit;
-        border-bottom-color: inherit;
-    }
+  [data-debug-wrapper="true"] > * {
+    margin-left: inherit;
+    margin-right: inherit;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    padding-left: inherit;
+    padding-right: inherit;
+    padding-top: inherit;
+    padding-bottom: inherit;
+    column-gap: inherit;
+    row-gap: inherit;
+    gap: inherit;
+    border-left-width: inherit;
+    border-right-width: inherit;
+    border-top-width: inherit;
+    border-bottom-width: inherit;
+    border-left-style: inherit;
+    border-right-style: inherit;
+    border-top-style: inherit;
+    border-bottom-style: inherit;
+    border-left-color: inherit;
+    border-right-color: inherit;
+    border-top-color: inherit;
+    border-bottom-color: inherit;
+  }
 }
