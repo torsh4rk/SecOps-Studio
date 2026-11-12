@@ -15,6 +15,18 @@
 
 ---
 
+## Threat Intelligence MCP — independent module
+
+**[TORSh4rk Threat Intelligence MCP](torsh4rk-threat-intel-mcp/)** is a read-only research MCP server with 10 analyst tools for IOC triage, enrichment through approved providers, deterministic evidence correlation, and SOC response checklists. It uses Python 3.11+ with no runtime dependencies.
+
+- [Project README and installation](torsh4rk-threat-intel-mcp/README.md)
+- [Threat model](torsh4rk-threat-intel-mcp/docs/THREAT_MODEL.md)
+- [Offline unit tests](torsh4rk-threat-intel-mcp/tests/test_server.py)
+
+**Status:** Research MVP; not production-ready. No stolen credential access, malware downloading, Tor browsing, or automated containment.
+
+---
+
 ## Executive overview
 
 Agricultural operations increasingly depend on APIs, remote telemetry, sensor platforms, and software-controlled workflows. AI agents introduce an additional trust boundary when they read untrusted data, choose tools, or interact with services that may ultimately influence physical processes.
