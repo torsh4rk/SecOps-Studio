@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "torsh4rk-threat-intel": {
+      "command": "python3",
+      "args": ["/ABSOLUTE/PATH/TO/torsh4rk-threat-intel-mcp/server.py"]
+    }
+  }
+}
