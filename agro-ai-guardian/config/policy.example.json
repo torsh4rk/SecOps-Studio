@@ -1,0 +1,9 @@
+{
+  "approved_agents": {
+    "farm-observer": ["read_sensor", "query_logs"],
+    "security-sentinel": ["query_logs", "read_sensor"],
+    "irrigation-planner": ["read_sensor", "query_logs", "propose_schedule"]
+  },
+  "allowed_destination_hosts": ["telemetry.example.org"],
+  "rate_limit_per_minute": 5
+}

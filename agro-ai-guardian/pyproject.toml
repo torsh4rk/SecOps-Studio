@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agro-ai-guardian"
+version = "0.1.0"
+description = "Read-only defensive policy monitor for AI agents and agricultural OT telemetry"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+
+[project.scripts]
+agro-guardian = "agro_guardian.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["agro_guardian*"]
