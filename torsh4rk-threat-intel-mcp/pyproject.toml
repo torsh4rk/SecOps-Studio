@@ -1,0 +1,12 @@
+[project]
+name = "torsh4rk-threat-intel-mcp"
+version = "0.1.0"
+description = "Read-only MCP threat intelligence and deterministic SOC evidence correlation"
+requires-python = ">=3.11"
+license = "MIT"
+readme = "README.md"
+authors = [{name = "torsh4rk"}]
+keywords = ["mcp", "threat-intelligence", "security", "defense", "soc"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
