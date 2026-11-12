@@ -1,0 +1,6 @@
+{
+  "evidence": [
+    {"indicator": "example.org", "source": "Example SOC case", "assessment": "suspicious"},
+    {"indicator": "example.org", "source": "Example second source", "assessment": "unknown"}
+  ]
+}
